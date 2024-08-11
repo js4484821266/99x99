@@ -11,16 +11,24 @@
     </div>
     <div>
         <h2>
+            <span id="old_a">??</span>
+            &times;
+            <span id="old_b">??</span>
+            =
+            <span id="response" style="color: lightgray;text-decoration: overline;"></span>
+            <span id="correct">??</span>
+        </h2>
+        <h2>
             <span id="a"></span>
             &times;
             <span id="b"></span>
-            =
-            <span id="response"></span>
-            <span id="correct"></span>
+            = ?
         </h2>
     </div>
     <div>
-        <!--form-->
+        <form id="form" onsubmit="submit();return false">
+            <input type="number" id="answer" autofocus/>
+        </form>
     </div>
 </body>
 
