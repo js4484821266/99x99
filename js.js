@@ -1,4 +1,4 @@
-var lmn_a, lmn_b,lmnoa,lmnob,rspns,crrct,answr,a,b;
+var lmn_a, lmn_b, lmnoa, lmnob, rspns, crrct, answr, a, b;
 function set_pair() {
     a = Math.floor(Math.random() * 100);
     b = Math.floor(Math.random() * 100);
@@ -15,13 +15,15 @@ window.onload = function () {
     answr = document.getElementById("answer");
     set_pair();
 }
-function submit(){
-    lmnoa.innerHTML = a;
-    lmnob.innerHTML= b;
-    crrct.innerHTML = a*b;
-    // print the guessing in "response" if incorrect
-    if (answr.value != a*b){
-        rspns.innerHTML = answr.value;
+function submit(e) {
+    if (e.keyCode == 13) {
+        lmnoa.innerHTML = a;
+        lmnob.innerHTML = b;
+        crrct.innerHTML = a * b;
+        // print the guessing in "response" if incorrect
+        if (answr.value != a * b) {
+            rspns.innerHTML = answr.value;
+        }
+        set_pair();
     }
-    set_pair();
 }

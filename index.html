@@ -15,7 +15,7 @@
             &times;
             <span id="old_b">??</span>
             =
-            <span id="response" style="color: lightgray;text-decoration: overline;"></span>
+            <span id="response" style="color: lightgray;text-decoration:line-through;"></span>
             <span id="correct">??</span>
         </h2>
         <h2>
@@ -26,9 +26,7 @@
         </h2>
     </div>
     <div>
-        <form id="form" onsubmit="submit();return false">
-            <input type="number" id="answer" autofocus/>
-        </form>
+        <input type="number" id="answer" onkeypress="submit(event)" autofocus />
     </div>
 </body>
 
