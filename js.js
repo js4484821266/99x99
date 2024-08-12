@@ -20,9 +20,11 @@ function submit(e) {
         lmnoa.innerHTML = a;
         lmnob.innerHTML = b;
         crrct.innerHTML = a * b;
-        // print the guessing in "response" if incorrect
         if (answr.value != a * b) {
             rspns.innerHTML = answr.value;
+        }
+        else {
+            rspns.innerHTML = "";
         }
         set_pair();
     }
