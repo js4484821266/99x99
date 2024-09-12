@@ -27,5 +27,6 @@ function submit(e) {
             rspns.innerHTML = "";
         }
         set_pair();
+        answr.value = "";
     }
 }
