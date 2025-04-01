@@ -1,7 +1,7 @@
 var lmn_a, lmn_b, lmnoa, lmnob, rspns, crrct, answr, a, b;
 function set_pair() {
-    a = Math.floor(Math.random() * 100);
-    b = Math.floor(Math.random() * 100);
+    a = Math.floor(Math.random() * (100 - 11) + 11);
+    b = Math.floor(Math.random() * (100 - 11) + 11);
     lmn_a.innerHTML = a;
     lmn_b.innerHTML = b;
 }
