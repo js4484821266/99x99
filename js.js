@@ -1,8 +1,10 @@
 var lmn_a, lmn_b, lmnoa, lmnob, rspns, crrct, answr, a, b;
 var timerElement, currentProblemDiv;
 var timerInterval = null;
-var elapsedSeconds = 0;
+var startTime = null;
+var elapsedTime = 0;
 var isPaused = false;
+var AUTO_ADVANCE_TIME = 60000; // 60 seconds in milliseconds
 
 function set_pair() {
     a = Math.floor(Math.random() * (100 - 11) + 11);
@@ -12,34 +14,60 @@ function set_pair() {
 }
 
 function updateTimerDisplay() {
-    var minutes = Math.floor(elapsedSeconds / 60);
-    var seconds = elapsedSeconds % 60;
+    var totalSeconds = Math.floor(elapsedTime / 1000);
+    var milliseconds = Math.floor((elapsedTime % 1000) / 10); // Show centiseconds (2 digits)
     timerElement.innerHTML = 
-        (minutes < 10 ? "0" : "") + minutes + ":" + 
-        (seconds < 10 ? "0" : "") + seconds;
+        totalSeconds + "." + 
+        (milliseconds < 10 ? "0" : "") + milliseconds;
+    
+    // Auto-advance if over 60 seconds
+    if (elapsedTime >= AUTO_ADVANCE_TIME) {
+        autoAdvance();
+    }
 }
 
 function startTimer() {
     if (timerInterval) {
         clearInterval(timerInterval);
     }
+    startTime = Date.now();
+    elapsedTime = 0;
     timerInterval = setInterval(function() {
         if (!isPaused) {
-            elapsedSeconds++;
+            elapsedTime = Date.now() - startTime;
             updateTimerDisplay();
         }
-    }, 1000);
+    }, 50); // Update every 50ms for smooth millisecond display
 }
 
 function resetTimer() {
-    elapsedSeconds = 0;
+    startTime = Date.now();
+    elapsedTime = 0;
     updateTimerDisplay();
+}
+
+function autoAdvance() {
+    // Mark current answer as skipped
+    lmnoa.innerHTML = a;
+    lmnob.innerHTML = b;
+    crrct.innerHTML = a * b;
+    rspns.innerHTML = "(skipped)";
+    
+    // Generate new problem
+    set_pair();
+    answr.value = "";
+    
+    // Reset timer for new problem
+    resetTimer();
 }
 
 function commence() {
     // Show the problem if it was hidden
     currentProblemDiv.classList.remove("hidden");
     isPaused = false;
+    
+    // Show the timer
+    timerElement.style.visibility = "visible";
     
     // Reset and start the timer
     resetTimer();
@@ -59,6 +87,9 @@ function pause() {
     
     // Pause the timer
     isPaused = true;
+    
+    // Hide the timer
+    timerElement.style.visibility = "hidden";
 }
 
 window.onload = function () {
@@ -87,6 +118,8 @@ function submit(e) {
         }
         else {
             rspns.innerHTML = "";
+            // Reset timer when solved correctly
+            resetTimer();
         }
         set_pair();
         answr.value = "";
