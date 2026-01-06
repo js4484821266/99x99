@@ -20,8 +20,9 @@ function updateTimerDisplay() {
         totalSeconds + "." + 
         (milliseconds < 10 ? "0" : "") + milliseconds;
     
-    // Auto-advance if over 60 seconds
-    if (elapsedTime >= AUTO_ADVANCE_TIME) {
+    // Auto-advance if over 60 seconds (only once)
+    if (elapsedTime >= AUTO_ADVANCE_TIME && !isPaused) {
+        clearInterval(timerInterval); // Prevent multiple triggers
         autoAdvance();
     }
 }
@@ -37,7 +38,7 @@ function startTimer() {
             elapsedTime = Date.now() - startTime;
             updateTimerDisplay();
         }
-    }, 50); // Update every 50ms for smooth millisecond display
+    }, 100); // Update every 100ms for centisecond display
 }
 
 function resetTimer() {
@@ -46,8 +47,29 @@ function resetTimer() {
     updateTimerDisplay();
 }
 
+function completeProblem(userAnswer) {
+    // Display the previous problem and answer
+    lmnoa.innerHTML = a;
+    lmnob.innerHTML = b;
+    crrct.innerHTML = a * b;
+    
+    // Show user's answer if incorrect, or clear if correct
+    if (userAnswer !== null && userAnswer != a * b) {
+        rspns.innerHTML = userAnswer;
+    } else {
+        rspns.innerHTML = "";
+    }
+    
+    // Generate new problem
+    set_pair();
+    answr.value = "";
+    
+    // Reset timer for new problem
+    resetTimer();
+}
+
 function autoAdvance() {
-    // Mark current answer as skipped
+    // Mark as skipped and complete the problem
     lmnoa.innerHTML = a;
     lmnob.innerHTML = b;
     crrct.innerHTML = a * b;
@@ -59,6 +81,9 @@ function autoAdvance() {
     
     // Reset timer for new problem
     resetTimer();
+    
+    // Restart the timer interval
+    startTimer();
 }
 
 function commence() {
@@ -110,18 +135,6 @@ window.onload = function () {
 
 function submit(e) {
     if (e.keyCode == 13) {
-        lmnoa.innerHTML = a;
-        lmnob.innerHTML = b;
-        crrct.innerHTML = a * b;
-        if (answr.value != a * b) {
-            rspns.innerHTML = answr.value;
-        }
-        else {
-            rspns.innerHTML = "";
-            // Reset timer when solved correctly
-            resetTimer();
-        }
-        set_pair();
-        answr.value = "";
+        completeProblem(answr.value);
     }
 }
