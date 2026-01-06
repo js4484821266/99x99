@@ -125,7 +125,7 @@ window.onload = function () {
     // Don't set initial pair - wait for commence button
     // Initialize timer display
     updateTimerDisplay();
-}
+};
 
 function submit(e) {
     if (e.keyCode == 13) {
