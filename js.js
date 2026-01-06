@@ -47,14 +47,16 @@ function resetTimer() {
     updateTimerDisplay();
 }
 
-function completeProblem(userAnswer) {
+function completeProblem(userAnswer, isAutoAdvance) {
     // Display the previous problem and answer
     lmnoa.innerHTML = a;
     lmnob.innerHTML = b;
     crrct.innerHTML = a * b;
     
-    // Show user's answer if incorrect, or clear if correct
-    if (userAnswer !== null && Number(userAnswer) !== a * b) {
+    // Show user's answer based on the context
+    if (isAutoAdvance) {
+        rspns.innerHTML = "(skipped)";
+    } else if (userAnswer !== null && Number(userAnswer) !== a * b) {
         rspns.innerHTML = userAnswer;
     } else {
         rspns.innerHTML = "";
@@ -65,22 +67,17 @@ function completeProblem(userAnswer) {
     answr.value = "";
     
     // Reset timer for new problem
-    resetTimer();
+    if (isAutoAdvance) {
+        // For auto-advance, restart the timer completely
+        startTimer();
+    } else {
+        // For user answers, just reset the timer
+        resetTimer();
+    }
 }
 
 function autoAdvance() {
-    // Use completeProblem with "(skipped)" to mark the skipped problem
-    lmnoa.innerHTML = a;
-    lmnob.innerHTML = b;
-    crrct.innerHTML = a * b;
-    rspns.innerHTML = "(skipped)";
-    
-    // Generate new problem
-    set_pair();
-    answr.value = "";
-    
-    // Reset timer for new problem and restart interval
-    startTimer();
+    completeProblem(null, true);
 }
 
 function commence() {
