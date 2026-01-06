@@ -54,7 +54,7 @@ function completeProblem(userAnswer) {
     crrct.innerHTML = a * b;
     
     // Show user's answer if incorrect, or clear if correct
-    if (userAnswer !== null && userAnswer != a * b) {
+    if (userAnswer !== null && Number(userAnswer) !== a * b) {
         rspns.innerHTML = userAnswer;
     } else {
         rspns.innerHTML = "";
@@ -69,7 +69,7 @@ function completeProblem(userAnswer) {
 }
 
 function autoAdvance() {
-    // Mark as skipped and complete the problem
+    // Use completeProblem with "(skipped)" to mark the skipped problem
     lmnoa.innerHTML = a;
     lmnob.innerHTML = b;
     crrct.innerHTML = a * b;
@@ -79,10 +79,7 @@ function autoAdvance() {
     set_pair();
     answr.value = "";
     
-    // Reset timer for new problem
-    resetTimer();
-    
-    // Restart the timer interval
+    // Reset timer for new problem and restart interval
     startTimer();
 }
 
