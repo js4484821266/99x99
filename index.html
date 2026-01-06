@@ -2,31 +2,190 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>99×99 Multiplication Practice</title>
     <script src="js.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #667eea;
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .timer {
+            text-align: center;
+            font-size: 2em;
+            color: #764ba2;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        #commence-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        #commence-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        #pause-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        #pause-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(245, 87, 108, 0.4);
+        }
+
+        .previous-problem {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            min-height: 60px;
+        }
+
+        .previous-problem h2 {
+            font-size: 1.5em;
+            color: #6c757d;
+        }
+
+        .current-problem {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 10px;
+        }
+
+        .current-problem h2 {
+            font-size: 2.5em;
+            color: #333;
+        }
+
+        .current-problem.hidden {
+            display: none;
+        }
+
+        #response {
+            color: #dc3545;
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+
+        #correct {
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .answer-input {
+            text-align: center;
+        }
+
+        #answer {
+            width: 100%;
+            max-width: 300px;
+            padding: 15px;
+            font-size: 1.5em;
+            border: 3px solid #667eea;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        #answer:focus {
+            outline: none;
+            border-color: #764ba2;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+    </style>
 </head>
 
 <body>
-    <div>
+    <div class="container">
         <h1>99&times;99</h1>
-    </div>
-    <div>
-        <h2>
-            <span id="old_a">??</span>
-            &times;
-            <span id="old_b">??</span>
-            =
-            <span id="response" style="color: lightgray;text-decoration:line-through;"></span>
-            <span id="correct">??</span>
-        </h2>
-        <h2>
-            <span id="a"></span>
-            &times;
-            <span id="b"></span>
-            = ?
-        </h2>
-    </div>
-    <div>
-        <input type="number" id="answer" onkeypress="submit(event)" autofocus />
+        
+        <div class="timer" id="timer">00:00</div>
+        
+        <div class="controls">
+            <button id="commence-btn" onclick="commence()">Commence</button>
+            <button id="pause-btn" onclick="pause()">Pause</button>
+        </div>
+        
+        <div class="previous-problem">
+            <h2>
+                <span id="old_a">??</span>
+                &times;
+                <span id="old_b">??</span>
+                =
+                <span id="response"></span>
+                <span id="correct">??</span>
+            </h2>
+        </div>
+        
+        <div class="current-problem" id="current-problem">
+            <h2>
+                <span id="a"></span>
+                &times;
+                <span id="b"></span>
+                = ?
+            </h2>
+        </div>
+        
+        <div class="answer-input">
+            <input type="number" id="answer" onkeypress="submit(event)" autofocus />
+        </div>
     </div>
 </body>
 
