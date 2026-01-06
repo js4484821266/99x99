@@ -129,6 +129,6 @@ window.onload = function () {
 
 function submit(e) {
     if (e.keyCode == 13) {
-        completeProblem(answr.value);
+        completeProblem(answr.value, false);
     }
 }
