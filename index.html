@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -155,14 +155,14 @@
 <body>
     <div class="container">
         <h1>99&times;99</h1>
-        
+
         <div class="timer" id="timer">0.00</div>
-        
+
         <div class="controls">
-            <button id="commence-btn" onclick="commence()">Commence</button>
-            <button id="pause-btn" onclick="pause()">Pause</button>
+            <button id="commence-btn" type="button" onclick="commence()">Commence</button>
+            <button id="pause-btn" type="button" onclick="pause()">Pause</button>
         </div>
-        
+
         <div class="previous-problem">
             <h2>
                 <span id="old_a">??</span>
@@ -173,7 +173,7 @@
                 <span id="correct">??</span>
             </h2>
         </div>
-        
+
         <div class="current-problem" id="current-problem">
             <h2>
                 <span id="a"></span>
@@ -182,9 +182,9 @@
                 = ?
             </h2>
         </div>
-        
+
         <div class="answer-input">
-            <input type="number" id="answer" onkeypress="submit(event)" autofocus />
+            <input type="number" id="answer" onkeypress="submit(event)" autofocus>
         </div>
     </div>
 </body>
