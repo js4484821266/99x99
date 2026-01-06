@@ -1,8 +1,10 @@
 var lmn_a, lmn_b, lmnoa, lmnob, rspns, crrct, answr, a, b;
 var timerElement, currentProblemDiv;
 var timerInterval = null;
-var elapsedSeconds = 0;
+var startTime = null;
+var elapsedTime = 0;
 var isPaused = false;
+var AUTO_ADVANCE_TIME = 60000; // 60 seconds in milliseconds
 
 function set_pair() {
     a = Math.floor(Math.random() * (100 - 11) + 11);
@@ -12,34 +14,79 @@ function set_pair() {
 }
 
 function updateTimerDisplay() {
-    var minutes = Math.floor(elapsedSeconds / 60);
-    var seconds = elapsedSeconds % 60;
+    var totalSeconds = Math.floor(elapsedTime / 1000);
+    var milliseconds = Math.floor((elapsedTime % 1000) / 10); // Show centiseconds (2 digits)
     timerElement.innerHTML = 
-        (minutes < 10 ? "0" : "") + minutes + ":" + 
-        (seconds < 10 ? "0" : "") + seconds;
+        totalSeconds + "." + 
+        (milliseconds < 10 ? "0" : "") + milliseconds;
+    
+    // Auto-advance if over 60 seconds (only once)
+    if (elapsedTime >= AUTO_ADVANCE_TIME && !isPaused) {
+        clearInterval(timerInterval); // Prevent multiple triggers
+        autoAdvance();
+    }
 }
 
 function startTimer() {
     if (timerInterval) {
         clearInterval(timerInterval);
     }
+    startTime = Date.now();
+    elapsedTime = 0;
     timerInterval = setInterval(function() {
         if (!isPaused) {
-            elapsedSeconds++;
+            elapsedTime = Date.now() - startTime;
             updateTimerDisplay();
         }
-    }, 1000);
+    }, 100); // Update every 100ms for centisecond display
 }
 
 function resetTimer() {
-    elapsedSeconds = 0;
+    startTime = Date.now();
+    elapsedTime = 0;
     updateTimerDisplay();
+}
+
+function completeProblem(userAnswer, isAutoAdvance) {
+    // Display the previous problem and answer
+    lmnoa.innerHTML = a;
+    lmnob.innerHTML = b;
+    crrct.innerHTML = a * b;
+    
+    // Show user's answer based on the context
+    if (isAutoAdvance) {
+        rspns.innerHTML = "(skipped)";
+    } else if (userAnswer !== null && Number(userAnswer) !== a * b) {
+        rspns.innerHTML = userAnswer;
+    } else {
+        rspns.innerHTML = "";
+    }
+    
+    // Generate new problem
+    set_pair();
+    answr.value = "";
+    
+    // Reset timer for new problem
+    if (isAutoAdvance) {
+        // For auto-advance, restart the timer completely
+        startTimer();
+    } else {
+        // For user answers, just reset the timer
+        resetTimer();
+    }
+}
+
+function autoAdvance() {
+    completeProblem(null, true);
 }
 
 function commence() {
     // Show the problem if it was hidden
     currentProblemDiv.classList.remove("hidden");
     isPaused = false;
+    
+    // Show the timer
+    timerElement.style.visibility = "visible";
     
     // Reset and start the timer
     resetTimer();
@@ -59,6 +106,9 @@ function pause() {
     
     // Pause the timer
     isPaused = true;
+    
+    // Hide the timer
+    timerElement.style.visibility = "hidden";
 }
 
 window.onload = function () {
@@ -79,16 +129,6 @@ window.onload = function () {
 
 function submit(e) {
     if (e.keyCode == 13) {
-        lmnoa.innerHTML = a;
-        lmnob.innerHTML = b;
-        crrct.innerHTML = a * b;
-        if (answr.value != a * b) {
-            rspns.innerHTML = answr.value;
-        }
-        else {
-            rspns.innerHTML = "";
-        }
-        set_pair();
-        answr.value = "";
+        completeProblem(answr.value, false);
     }
 }
