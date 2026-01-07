@@ -8,7 +8,7 @@
 
 **Mental math trainer built with vanilla JavaScript, comprehensive testing, and modern CI/CD.**
 
-[Try Live Demo](https://js4484821266.github.io/99x99/) • [View Source](https://github.com/js4484821266/99x99)
+[Try Live Demo](https://js4484821266.github.io/99x99/)
 
 </div>
 
@@ -103,11 +103,3 @@ Automated quality checks on every commit ensure consistent code standards.
 ## License
 
 ISC
-
----
-
-<div align="center">
-
-Built by [js4484821266](https://github.com/js4484821266)
-
-</div>
