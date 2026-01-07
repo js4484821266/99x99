@@ -1,91 +1,110 @@
-# 99×99 Multiplication Practice
+# 99×99 — Mental Math Practice (11–99)
 
-<div align="center">
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-blue?logo=github)](https://js4484821266.github.io/99x99/)
+[![CI Tests](https://github.com/js4484821266/99x99/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/js4484821266/99x99/actions/workflows/ci.yml)
 
-[![Live Demo](https://img.shields.io/badge/demo-live-success?style=flat-square)](https://js4484821266.github.io/99x99/)
-[![CI](https://img.shields.io/github/actions/workflow/status/js4484821266/99x99/ci.yml?style=flat-square&label=tests)](https://github.com/js4484821266/99x99/actions)
-[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-yellow?style=flat-square)](https://github.com/js4484821266/99x99)
+A tiny browser-based multiplication drill app for practicing **two-digit × two-digit (11–99)** mental math.
 
-Mental math trainer built with vanilla JavaScript, comprehensive testing, and CI/CD.
-
-**[Try it live →](https://js4484821266.github.io/99x99/)**
-
-</div>
+> No frameworks. No build step. Just open and practice.
 
 ---
 
-## Overview
+## Demo
 
-A web-based multiplication practice application for numbers 11–99. Demonstrates professional development practices: test-driven development, continuous integration, and clean code principles.
+- **GitHub Pages:** https://js4484821266.github.io/99x99/
+- **Repo:** https://github.com/js4484821266/99x99
 
-## Features
+---
 
-- Random multiplication problems (11-99 range)
-- Timer tracking (seconds to milliseconds)
-- Pause/Resume functionality  
-- Visual feedback (correct/incorrect answers)
-- Auto-advance after 60 seconds
+## What it does
 
-## Tech Stack
+- Generates random multiplication problems in the **11–99** range
+- **Commence / Pause** flow
+  - Starts a timer when you begin
+  - Lets you pause and hide the problem (focus / anti-peek mode)
+  - Can generate a new problem when you commence again
+- Answer checking with clear feedback
+  - If incorrect, shows the correct answer and visually marks the wrong attempt
+- “Stuck?” behavior
+  - Can automatically move on to a new problem after a time limit
+  - Resets timing on solve (practice loop stays snappy)
 
-```
-JavaScript (ES6+)    Pure vanilla JavaScript
-Jest                 Unit testing framework
-ESLint               Code quality enforcement
-GitHub Actions       Continuous integration
-GitHub Pages         Deployment
-```
+*(Exact UI/behavior may evolve—see the app for the current behavior on `main`.)*
 
-## Quick Start
+---
 
-```bash
-# Run locally
-open index.html
+## Run locally
 
-# No build process or dependencies required
-```
+### Option A) The simple way
+1. Clone:
+   ```bash
+   git clone https://github.com/js4484821266/99x99.git
+   cd 99x99
+   ````
 
-## Testing
+2. Open `index.html` in your browser.
 
-| Type | Tool | Coverage |
-|------|------|----------|
-| Unit Tests | Jest | 27 tests, 100% functions |
-| Code Quality | ESLint | Style enforcement |
-| HTML | html-validate | HTML5 compliance |
-| CI/CD | GitHub Actions | Node 18.x, 20.x |
+### Option B) Recommended (local server)
 
-```bash
-npm install
-npm test              # Run all tests
-npm run test:jest     # Unit tests only
-npm run test:lint     # Linting only
-npm run test:html     # HTML validation
-```
-
-## Development
+Some browsers restrict certain behaviors when opening files directly. A tiny local server avoids that:
 
 ```bash
-git clone https://github.com/js4484821266/99x99.git
-cd 99x99
-open index.html
+python -m http.server 8000
 ```
 
-No build step needed.
+Then open:
 
-## Technical Approach
+* [http://localhost:8000](http://localhost:8000)
 
-**Vanilla JavaScript** — Core language mastery without framework abstractions.
+---
 
-**Test coverage** — Every function tested with edge cases. Enables confident refactoring.
+## Testing & quality checks
 
-**Automated quality** — GitHub Actions validates every commit. Multi-version Node testing.
+This repo includes a lightweight “quality gate” setup aimed at making even a small toy project behave like a real project:
 
-## Stats
+* **Unit tests** (Jest)
+* **Linting** (ESLint)
+* **HTML validation**
+* **CI on GitHub Actions** (runs checks on pushes & PRs)
 
-- 27 Jest unit tests
-- 0 runtime dependencies
-- 100% function coverage  
-- Multi-version CI (Node 18.x, 20.x)
+> The goal here isn’t pretending a tiny web toy is a spaceship—
+> It’s demonstrating habits: repeatable checks, automation, and maintainability.
+
+---
+
+## Project structure
+
+```text
+.
+├─ index.html
+├─ js.js
+├─ js.test.js
+├─ jest.config.js
+├─ eslint.config.js
+├─ .htmlvalidaterc.json
+└─ .github/
+   └─ workflows/
+      └─ ci.yml
+```
+
+---
+
+## AI-assisted development (disclosure)
+
+Parts of this repository were created and iterated with the help of **GitHub Copilot**, using explicit prompts, then reviewed/adjusted by the maintainer.
+
+This is intentional: the point is to show how I structure requirements, iterate quickly, and then put guardrails around the result (tests/CI/lint).
+
+---
+
+## Contributing
+
+Issues and PRs are welcome:
+
+* Bug reports: include browser + steps to reproduce
+* Feature suggestions: describe the expected behavior precisely (edge cases matter)
+
+---
 
 ## License
 
