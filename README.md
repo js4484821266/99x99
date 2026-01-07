@@ -1,59 +1,61 @@
-# 99×99 ⚡ Mental Math Trainer
+# 99×99 Multiplication Practice
 
 <div align="center">
 
-[![Live Demo](https://img.shields.io/badge/demo-live-success?style=for-the-badge&logo=github)](https://js4484821266.github.io/99x99/)
-[![CI Tests](https://img.shields.io/github/actions/workflow/status/js4484821266/99x99/ci.yml?style=for-the-badge&logo=github-actions&label=tests)](https://github.com/js4484821266/99x99/actions)
-[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-yellow?style=for-the-badge&logo=javascript)](https://github.com/js4484821266/99x99)
+[![Live Demo](https://img.shields.io/badge/demo-live-success?style=flat-square)](https://js4484821266.github.io/99x99/)
+[![CI Tests](https://img.shields.io/github/actions/workflow/status/js4484821266/99x99/ci.yml?style=flat-square&label=tests)](https://github.com/js4484821266/99x99/actions)
+[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-yellow?style=flat-square)](https://github.com/js4484821266/99x99)
 
-**A lightning-fast multiplication practice app built with pure JavaScript, Jest testing, and modern CI/CD.**
+**Mental math trainer built with vanilla JavaScript, comprehensive testing, and modern CI/CD.**
 
-[✨ Try Live Demo](https://js4484821266.github.io/99x99/) • [📖 Read the Code](https://github.com/js4484821266/99x99)
+[Try Live Demo](https://js4484821266.github.io/99x99/) • [View Source](https://github.com/js4484821266/99x99)
 
 </div>
 
 ---
 
-## 🎯 What This Project Shows
+## Overview
 
-This isn't just a math app—it's a showcase of **professional development practices**:
+A web-based multiplication practice application for numbers from 11 to 99. This project demonstrates professional development practices including test-driven development, continuous integration, and clean code principles.
 
-- ✅ **Test-Driven Development** - 27 comprehensive Jest unit tests
-- ✅ **CI/CD Pipeline** - Automated testing with GitHub Actions
-- ��� **Code Quality** - ESLint + HTML validation
-- ✅ **Clean Code** - Vanilla JS, no framework bloat
-- ✅ **Production Deploy** - Live on GitHub Pages
+### What This Demonstrates
 
-## 🚀 Features
+- **Test-Driven Development** — 27 comprehensive Jest unit tests
+- **CI/CD Pipeline** — Automated testing with GitHub Actions
+- **Code Quality** — ESLint and HTML validation
+- **Clean Architecture** — Vanilla JavaScript without framework dependencies
+- **Production Deployment** — Live on GitHub Pages
 
-- 🎲 Random multiplication problems (11-99 range)
-- ⏱️ Built-in timer to track solving speed
-- ⏸️ Pause/Resume functionality
-- ✨ Visual feedback for correct/incorrect answers
-- 🔄 Auto-advance after 60 seconds
+## Features
 
-## 🛠️ Tech Stack
+- Random multiplication problems (11-99 range)
+- Timer to track problem-solving speed
+- Pause/Resume functionality
+- Visual feedback for correct and incorrect answers
+- Auto-advance after 60 seconds
+
+## Tech Stack
 
 ```
-JavaScript (ES6+)    • No frameworks, pure vanilla JS
-Jest                 • Unit testing & code coverage
-ESLint               • Code quality & linting
-GitHub Actions       • Continuous Integration
-GitHub Pages         • Deployment & hosting
+JavaScript (ES6+)    • Pure vanilla JavaScript
+Jest                 • Unit testing framework
+ESLint               • Code quality enforcement
+GitHub Actions       • Continuous integration
+GitHub Pages         • Deployment platform
 ```
 
-## 🧪 Testing Philosophy
+## Testing
 
-Quality matters. This project includes **comprehensive testing**:
+This project includes comprehensive software testing:
 
-| Test Type | Tool | Coverage |
-|-----------|------|----------|
+| Type | Tool | Coverage |
+|------|------|----------|
 | Unit Tests | Jest | 27 tests covering all functions |
-| Linting | ESLint | Code quality & style enforcement |
+| Code Quality | ESLint | Style and quality enforcement |
 | HTML Validation | html-validate | HTML5 standards compliance |
 | CI/CD | GitHub Actions | Multi-version Node.js (18.x, 20.x) |
 
-### Run Tests Locally
+### Running Tests
 
 ```bash
 # Install dependencies
@@ -68,37 +70,37 @@ npm run test:lint    # ESLint code quality checks
 npm run test:html    # HTML validation
 ```
 
-## 💻 Local Development
+## Development
 
 ```bash
-# Clone the repo
+# Clone the repository
 git clone https://github.com/js4484821266/99x99.git
 
 # Open in browser
 open index.html
 ```
 
-That's it! No build process, no dependencies to run the app.
+No build process or runtime dependencies required.
 
-## 🎨 Design Decisions
+## Design Decisions
 
 **Why vanilla JavaScript?**  
-To demonstrate deep understanding of core JavaScript without framework abstractions.
+Demonstrates deep understanding of core JavaScript without framework abstractions.
 
-**Why so many tests?**  
-Testing is how you ship with confidence. Every function is tested, edge cases included.
+**Why comprehensive testing?**  
+Testing enables confident deployment and refactoring. Every function includes unit tests with edge case coverage.
 
 **Why GitHub Actions?**  
-Modern development needs automation. Every push validates quality automatically.
+Automated quality checks on every commit ensure consistent code standards.
 
-## 📊 Project Stats
+## Project Metrics
 
-- **27** Jest unit tests
-- **0** external runtime dependencies
-- **100%** function coverage
-- **Multi-version** Node.js testing (18.x, 20.x)
+- 27 Jest unit tests
+- 0 external runtime dependencies
+- 100% function coverage
+- Multi-version Node.js testing (18.x, 20.x)
 
-## 📝 License
+## License
 
 ISC
 
@@ -106,8 +108,6 @@ ISC
 
 <div align="center">
 
-**Built with ❤️ by [js4484821266](https://github.com/js4484821266)**
-
-*Showcasing clean code, testing practices, and modern development workflows*
+Built by [js4484821266](https://github.com/js4484821266)
 
 </div>
