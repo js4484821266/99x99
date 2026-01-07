@@ -14,6 +14,41 @@ A tiny browser-based multiplication drill app for practicing **two-digit × two-
 - **GitHub Pages:** https://js4484821266.github.io/99x99/
 - **Repo:** https://github.com/js4484821266/99x99
 
+### Try it out
+
+1. **Start practicing**: Click the "Commence" button to begin
+2. **Solve problems**: Type your answer and press Enter
+3. **Pause anytime**: Click "Pause" to hide the current problem
+4. **Track your time**: Watch the timer count up as you solve
+5. **Auto-advance**: If you're stuck for 60 seconds, the app automatically moves to a new problem
+
+### Example workflow
+
+```text
+1. Click "Commence"
+   → Timer starts
+   → Random problem appears (e.g., 47 × 83 = ?)
+
+2. Type your answer: 3901
+   → Press Enter
+   → Previous problem shows with your answer
+   → New problem appears
+   → Timer resets
+
+3. Click "Pause" when needed
+   → Problem hides (anti-peek mode)
+   → Timer pauses
+   → Click "Commence" to resume with a fresh problem
+```
+
+### Features in action
+
+- **Immediate feedback**: Wrong answers are shown crossed out with the correct answer displayed
+- **Visual design**: Clean, modern UI with gradient backgrounds and smooth transitions
+- **Mobile-friendly**: Works on any device with a modern browser
+- **No installation**: Just open the link and start practicing
+- **Privacy-first**: Everything runs locally in your browser, no data sent anywhere
+
 ---
 
 ## What it does
