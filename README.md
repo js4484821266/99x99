@@ -40,7 +40,7 @@ A tiny browser-based multiplication drill app for practicing **two-digit × two-
    ```bash
    git clone https://github.com/js4484821266/99x99.git
    cd 99x99
-   ````
+   ```
 
 2. Open `index.html` in your browser.
 
