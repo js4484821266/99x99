@@ -26,7 +26,7 @@ A tiny browser-based multiplication drill app for practicing **two-digit × two-
 - Answer checking with clear feedback
   - If incorrect, shows the correct answer and visually marks the wrong attempt
 - “Stuck?” behavior
-  - Can automatically move on to a new problem after a time limit
+  - Can automatically move on to a new problem after a minute of being unsolved
   - Resets timing on solve (practice loop stays snappy)
 
 *(Exact UI/behavior may evolve—see the app for the current behavior on `main`.)*
