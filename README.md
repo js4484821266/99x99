@@ -1,96 +1,92 @@
-# 99x99 Multiplication Table Generator
+# 99×99 Multiplication Practice
 
-A simple web application that generates and displays a 99x99 multiplication table.
+<div align="center">
 
-## Features
+[![Live Demo](https://img.shields.io/badge/demo-live-success?style=flat-square)](https://js4484821266.github.io/99x99/)
+[![CI](https://img.shields.io/github/actions/workflow/status/js4484821266/99x99/ci.yml?style=flat-square&label=tests)](https://github.com/js4484821266/99x99/actions)
+[![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-yellow?style=flat-square)](https://github.com/js4484821266/99x99)
 
-- Generates a complete 99x99 multiplication table
-- Clean, responsive design
-- Easy to read grid layout
-- Lightweight and fast
+Mental math trainer built with vanilla JavaScript, comprehensive testing, and CI/CD.
 
-## Technologies Used
+**[Try it live →](https://js4484821266.github.io/99x99/)**
 
-- HTML5
-- CSS3
-- JavaScript (Vanilla)
-
-## Usage
-
-Simply open the `index.html` file in a web browser to view the multiplication table.
-
-### Online
-
-Visit the live demo: [99x99 Multiplication Table](https://js4484821266.github.io/99x99/)
-
-### Local
-
-1. Clone this repository
-2. Open `index.html` in your preferred web browser
-
-## Project Structure
-
-```
-99x99/
-├── index.html          # Main HTML file
-├── styles.css          # Styling
-├── script.js           # JavaScript logic
-└── README.md          # This file
-```
-
-## License
-
-This project is open source and available under the MIT License.
-
-## Development
-
-This project was created as a simple demonstration of:
-- DOM manipulation
-- CSS Grid/Table layouts
-- Basic JavaScript programming
-
-### Setup for Development
-
-1. Clone the repository
-2. Make your changes
-3. Test in a browser
-4. Submit a pull request
-
-## Development Process
-
-### Initial Planning (2026-01-06)
-
-**Objective**: Create a simple, functional 99x99 multiplication table web application.
-
-**Requirements**:
-- Display a complete 99x99 multiplication table
-- Clean, readable interface
-- Responsive design
-- No external dependencies
-
-### Implementation Steps
-
-1. **HTML Structure** - Created basic HTML template with table container
-2. **JavaScript Logic** - Implemented multiplication table generation
-3. **CSS Styling** - Added styling for readability and aesthetics
-4. **Testing** - Verified across different browsers
-5. **Documentation** - Created comprehensive README
-
-### Challenges & Solutions
-
-- **Performance**: Rendering 9,801 cells could be slow
-  - Solution: Used efficient DOM manipulation techniques
-- **Readability**: Large table can be overwhelming
-  - Solution: Applied alternating row colors and clear borders
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Author
-
-js4484821266
+</div>
 
 ---
 
-*Created with ❤️ for learning and demonstration purposes*
+## Overview
+
+A web-based multiplication practice application for numbers 11–99. Demonstrates professional development practices: test-driven development, continuous integration, and clean code principles.
+
+## Features
+
+- Random multiplication problems (11-99 range)
+- Timer tracking (seconds to milliseconds)
+- Pause/Resume functionality  
+- Visual feedback (correct/incorrect answers)
+- Auto-advance after 60 seconds
+
+## Tech Stack
+
+```
+JavaScript (ES6+)    Pure vanilla JavaScript
+Jest                 Unit testing framework
+ESLint               Code quality enforcement
+GitHub Actions       Continuous integration
+GitHub Pages         Deployment
+```
+
+## Quick Start
+
+```bash
+# Run locally
+open index.html
+
+# No build process or dependencies required
+```
+
+## Testing
+
+| Type | Tool | Coverage |
+|------|------|----------|
+| Unit Tests | Jest | 27 tests, 100% functions |
+| Code Quality | ESLint | Style enforcement |
+| HTML | html-validate | HTML5 compliance |
+| CI/CD | GitHub Actions | Node 18.x, 20.x |
+
+```bash
+npm install
+npm test              # Run all tests
+npm run test:jest     # Unit tests only
+npm run test:lint     # Linting only
+npm run test:html     # HTML validation
+```
+
+## Development
+
+```bash
+git clone https://github.com/js4484821266/99x99.git
+cd 99x99
+open index.html
+```
+
+No build step needed.
+
+## Technical Approach
+
+**Vanilla JavaScript** — Core language mastery without framework abstractions.
+
+**Test coverage** — Every function tested with edge cases. Enables confident refactoring.
+
+**Automated quality** — GitHub Actions validates every commit. Multi-version Node testing.
+
+## Stats
+
+- 27 Jest unit tests
+- 0 runtime dependencies
+- 100% function coverage  
+- Multi-version CI (Node 18.x, 20.x)
+
+## License
+
+ISC
