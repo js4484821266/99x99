@@ -18,6 +18,8 @@
 
 A web-based multiplication practice application for numbers from 11 to 99. This project demonstrates professional development practices including test-driven development, continuous integration, and clean code principles.
 
+Built iteratively with AI pair programming, this project showcases how clear requirements and comprehensive testing can produce production-ready code.
+
 ### What This Demonstrates
 
 - **Test-Driven Development** — 27 comprehensive Jest unit tests
@@ -25,6 +27,7 @@ A web-based multiplication practice application for numbers from 11 to 99. This 
 - **Code Quality** — ESLint and HTML validation
 - **Clean Architecture** — Vanilla JavaScript without framework dependencies
 - **Production Deployment** — Live on GitHub Pages
+- **AI-Assisted Development** — Iterative feature development with prompt engineering
 
 ## Features
 
@@ -43,6 +46,40 @@ ESLint               • Code quality enforcement
 GitHub Actions       • Continuous integration
 GitHub Pages         • Deployment platform
 ```
+
+## Development Process
+
+This application was built through iterative AI-assisted development. The prompts used demonstrate how to effectively work with AI coding assistants:
+
+### Prompt 1: Core Features
+```
+Fancify the webpage and add these features:
+- add timer
+- display the problem and start the timer the instant the "commence" button is clicked
+- When the "pause" button is clicked, hide the problem
+- When the "commence" button is clicked again, show a new problem, no matter whether paused or not
+- When the answer is submitted, tell if the response matches the answer. if not, strike out the response and show the answer by that.
+```
+
+### Prompt 2: Refinement
+```
+add features:
+
+automatically show a new problem when not solved for over a minute
+not display minutes but only seconds to milliseconds
+when solved, reset the timer
+when paused, hide the timer
+```
+
+### Prompt 3: Quality Assurance
+```
+pass it through all possible software tests
+```
+
+These prompts showcase:
+- **Clear requirements** — Specific, actionable feature requests
+- **Iterative refinement** — Building on existing functionality
+- **Quality focus** — Explicit testing requirements
 
 ## Testing
 
@@ -93,12 +130,16 @@ Testing enables confident deployment and refactoring. Every function includes un
 **Why GitHub Actions?**  
 Automated quality checks on every commit ensure consistent code standards.
 
+**Why document the prompts?**  
+Shows effective AI collaboration practices and makes the development process transparent and reproducible.
+
 ## Project Metrics
 
 - 27 Jest unit tests
 - 0 external runtime dependencies
 - 100% function coverage
 - Multi-version Node.js testing (18.x, 20.x)
+- 3 iterative development prompts
 
 ## License
 
